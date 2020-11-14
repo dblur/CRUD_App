@@ -1,6 +1,5 @@
 package app.DAO;
 
-import app.database.DatabaseConnection;
 import app.model.User;
 
 import java.sql.*;
@@ -8,7 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserJdbcDAO implements UserDAO{
-    Connection connection = DatabaseConnection.getSQLConnection();
+    private Connection connection;
+
+    UserJdbcDAO(Connection daoConnection) {
+        connection = daoConnection;
+    }
 
     @Override
     public List<User> getAllUsers() {
@@ -30,23 +33,5 @@ public class UserJdbcDAO implements UserDAO{
             System.out.println("Exception");
         }
         return allUsers;
-    }
-
-    @Override
-    public void addUser(User user) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO userinfo(name, email, password) VALUE (?,?,?)");
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getPassword());
-
-            if (preparedStatement.executeUpdate() != 0) {
-                preparedStatement.close();
-            }
-            preparedStatement.close();
-        }
-        catch (SQLException e){
-            System.out.println("Exception");
-        }
     }
 }

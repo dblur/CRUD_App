@@ -13,25 +13,24 @@
 </head>
 
 <body>
-<div>
-    <h1>Приложение</h1>
-</div>
 
 <div>
     <div>
         <div>
-            <h2>Пользователи</h2>
+            <h2>Users:</h2>
         </div>
             <table border="1">
                 <thead>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Password</th>
+                    <th>Id:</th>
+                    <th>Username:</th>
+                    <th>Email:</th>
+                    <th>Password:</th>
                 </thead>
                 <tbody>
 
                     <c:forEach var="user" items="${requestScope.userNames}">
                         <tr>
+                            <td>${user.id}</td>
                             <td>${user.name}</td>
                             <td>${user.email}</td>
                             <td>${user.password}</td>
@@ -43,7 +42,8 @@
 </div>
 
 <div>
-    <button onclick="location.href='/'">Вернуться на главную</button>
+    <button onclick="location.href='/'">Return to main</button>
 </div>
+
 </body>
 </html>

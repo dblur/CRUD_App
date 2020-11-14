@@ -19,16 +19,10 @@
 
 <div>
     <div>
-        <h3>Create new user</h3>
-        <button onclick="location.href='/add'">Добавить пользователя</button>
+        <button onclick="location.href='/add'">Add new user</button>
     </div>
     <div>
-        <h3>Edit saved user</h3>
-        <button onclick="location.href='/edit'">Редактировать пользователя</button>
-    </div>
-    <div>
-        <h3>UserList</h3>
-        <button onclick="location.href='/list'">Список пользователей</button>
+        <button onclick="location.href='/list'">Userlist</button>
     </div>
 </div>
 </body>

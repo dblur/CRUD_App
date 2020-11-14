@@ -1,4 +1,4 @@
-<%@ page import="app.model.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: hom888
   Date: 09.11.2020
@@ -12,9 +12,6 @@
 </head>
 
 <body>
-<div>
-    <h1>Приложение</h1>
-</div>
 
 <div>
     <%
@@ -24,7 +21,7 @@
     %>
     <div>
         <div>
-            <h2>Добавить пользователя</h2>
+            <h2>Add new user:</h2>
         </div>
 
         <form method="post">
@@ -41,13 +38,13 @@
                 <input type="password" name="pass"><br />
             </label>
 
-            <button type="submit">Отправить</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </div>
 
 <div>
-    <button onclick="location.href='/'">Вернуться на главную</button>
+    <button onclick="location.href='/'">Return to main</button>
 </div>
 </body>
 </html>

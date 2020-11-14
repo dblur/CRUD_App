@@ -1,6 +1,5 @@
 package app.servlets;
 
-import app.model.User;
 import app.service.UserService;
 
 import javax.servlet.ServletException;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-
 
 @WebServlet("/add")
 
@@ -28,11 +25,6 @@ public class AddServlet extends HttpServlet {
         String email = req.getParameter("email");
 
         UserService userService = UserService.getInstance();
-//        try {
-//            userService.addUser(new User(name, password, email));
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
 
         req.setAttribute("userName", name);
         doGet(req, resp);

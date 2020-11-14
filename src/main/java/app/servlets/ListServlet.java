@@ -14,12 +14,12 @@ import java.util.List;
 @WebServlet("/list")
 
 public class ListServlet extends HttpServlet {
+    UserService userService = UserService.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserService userService = UserService.getInstance();
         List<User> names = userService.getAllUsers();
         req.setAttribute("userNames", names);
-
         req.getRequestDispatcher("list.jsp").forward(req, resp);
     }
 }
