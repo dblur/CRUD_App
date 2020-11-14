@@ -22,13 +22,23 @@
         <div>
             <h2>Пользователи</h2>
         </div>
-        <ul>
-            <c:forEach var="user" items="${userNames}">
-                <li>
-                    ${user.name}
-                </li>
-            </c:forEach>
-        </ul>
+            <table border="1">
+                <thead>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </thead>
+                <tbody>
+
+                    <c:forEach var="user" items="${requestScope.userNames}">
+                        <tr>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${user.password}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
     </div>
 </div>
 

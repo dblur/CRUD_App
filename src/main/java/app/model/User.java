@@ -1,18 +1,41 @@
 package app.model;
 
 import java.util.Objects;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "userinfo")
 
 public class User {
+    @Id
+    @Column(name ="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
-    private String email;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
+    private String email;
 
     public User(){}
 
-    public User(String name, String password, String email) {
+    public User(Long id, String name, String password, String email) {
+        this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -57,9 +80,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
