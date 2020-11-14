@@ -20,10 +20,12 @@
 <div>
     <div>
         <button onclick="location.href='/add'">Add new user</button>
+        <button onclick="location.href='/delete'">Delete user</button>
     </div>
     <div>
         <button onclick="location.href='/list'">Userlist</button>
     </div>
+
 </div>
 </body>
 </html>

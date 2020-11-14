@@ -23,8 +23,8 @@
                 <thead>
                     <th>Id:</th>
                     <th>Username:</th>
-                    <th>Email:</th>
                     <th>Password:</th>
+                    <th>Email:</th>
                 </thead>
                 <tbody>
 
@@ -38,6 +38,13 @@
                     </c:forEach>
                 </tbody>
             </table>
+    </div>
+</div>
+
+<div>
+    <div>
+        <button onclick="location.href='/add'">Add new user Page</button>
+        <button onclick="location.href='/delete'">Delete user Page</button>
     </div>
 </div>
 

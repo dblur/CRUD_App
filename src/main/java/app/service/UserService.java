@@ -24,4 +24,22 @@ public class UserService {
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
+
+    public User getUserByName(String name) {
+        return userDAO.getUserByName(name);
+    }
+
+    public boolean addUser(User user) {
+        if (userDAO.getUserByName(user.getName()) == null) {
+            userDAO.addUser(user);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void deleteUser(String name, String password) {
+        userDAO.deleteUser(name, password);
+    }
 }
