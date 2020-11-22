@@ -21,12 +21,8 @@
 
         <form method="post">
 
-            <label>Name:
-                <input type="text" required name="name"><br />
-            </label>
-
-            <label>Password:
-                <input type="password" required name="password"><br />
+            <label>Id:
+                <input type="text" required name="id"><br />
             </label>
 
             <button type="submit">Delete user</button>

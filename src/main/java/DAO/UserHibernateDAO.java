@@ -4,6 +4,7 @@ import Entity.User;
 import database.HibernateConnection;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class UserHibernateDAO implements UserDAO {
     public List<User> getAllUsers() {
         List<User> userList;
         try (Session session = sessionFactory.openSession()) {
-            userList = (List<User>) session.createQuery("FROM User").list();
+            userList = session.createQuery("FROM User", User.class).getResultList();
             session.close();
         }
         return userList;
@@ -28,7 +29,19 @@ public class UserHibernateDAO implements UserDAO {
     public User getUserByName(String name) {
         User user;
         try (Session session = sessionFactory.openSession()) {
-            user = (User) session.createQuery("FROM User WHERE name=:name");
+            user = session.createQuery("FROM User WHERE name=:name", User.class)
+            .setParameter("name", name).uniqueResult();
+            session.close();
+        }
+        return user;
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        User user;
+        try (Session session = sessionFactory.openSession()) {
+            user = session.createQuery("FROM User WHERE id=:id", User.class)
+                    .setParameter("id", id).uniqueResult();
             session.close();
         }
         return user;
@@ -36,16 +49,18 @@ public class UserHibernateDAO implements UserDAO {
 
     public void addUser(User user) {
         try (Session session = sessionFactory.openSession()) {
-
+            Transaction transaction = session.beginTransaction();
             session.save(user);
+            transaction.commit();
             session.close();
         }
     }
 
-    public void deleteUser(String name, String password) {
+    public void deleteUser(Long id) {
         try (Session session = sessionFactory.openSession()) {
-
-            session.delete(name, password);
+            Transaction transaction = session.beginTransaction();
+            session.delete(getUserById(id));
+            transaction.commit();
             session.close();
         }
     }

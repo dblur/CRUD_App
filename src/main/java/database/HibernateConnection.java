@@ -7,13 +7,12 @@ import org.hibernate.service.ServiceRegistry;
 
 public class HibernateConnection {
     private static final SessionFactory sessionFactory = buildSessionFactory();
-    private static ServiceRegistry serviceRegistry;
 
     private static SessionFactory buildSessionFactory() {
 
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        Configuration configuration = new Configuration().configure();
+        configuration.addAnnotatedClass(Entity.User.class);
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         return configuration.buildSessionFactory(serviceRegistry);
     }
 

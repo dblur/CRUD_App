@@ -40,7 +40,7 @@ public class UserService {
             return false;
         }
     }
-    public void deleteUser(String name, String password) {
-        userDAO.deleteUser(name, password);
+    public void deleteUser(Long id) {
+        userDAO.deleteUser(id);
     }
 }

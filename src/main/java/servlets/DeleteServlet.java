@@ -15,9 +15,8 @@ public class DeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-        userService.deleteUser(name, password);
+        Long id = Long.parseLong(request.getParameter("id"));
+        userService.deleteUser(id);
         response.sendRedirect("/delete");
     }
 

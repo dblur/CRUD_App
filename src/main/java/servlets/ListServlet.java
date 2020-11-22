@@ -15,13 +15,9 @@ import java.util.List;
 public class ListServlet extends HttpServlet {
     UserService userService = UserService.getInstance();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> names = userService.getAllUsers();
         request.setAttribute("userNames", names);
         request.getRequestDispatcher("list.jsp").forward(request, response);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }
