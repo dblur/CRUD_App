@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: hom888
-  Date: 11.11.2020
-  Time: 23:19
+  Date: 22.11.2020
+  Time: 13:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,6 +15,9 @@
 
 <div>
     <h1>UserList webApp project</h1>
+</div>
+<div>
+    <h2>This is v_1.0 my first CRUD_App developer</h2>
 </div>
 
 <div>
