@@ -1,9 +1,8 @@
-<%@ page import="app.DAO.UserJdbcDAO" %>
-<%@ page import="app.service.UserService" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: hom888
-  Date: 14.11.2020
-  Time: 22:04
+  Date: 22.11.2020
+  Time: 13:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,12 +21,8 @@
 
         <form method="post">
 
-            <label>Name:
-                <input type="text" required name="name"><br />
-            </label>
-
-            <label>Password:
-                <input type="password" required name="password"><br />
+            <label>Id:
+                <input type="text" required name="id"><br />
             </label>
 
             <button type="submit">Delete user</button>
