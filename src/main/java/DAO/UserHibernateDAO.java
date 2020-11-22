@@ -63,5 +63,8 @@ public class UserHibernateDAO implements UserDAO {
             transaction.commit();
             session.close();
         }
+        catch (Exception e) {
+            System.out.println("An attempt to delete a non-existent user");
+        }
     }
 }
