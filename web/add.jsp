@@ -34,12 +34,8 @@
             </label>
 
             <button type="submit">Add new user</button>
+            <button onclick="location.href='/list'">Userlist</button>
         </form>
-        <%
-            if (request.getAttribute("name") != null) {
-                out.println("<p>User '" + request.getAttribute("name") + "' added!</p>");
-            }
-        %>
     </div>
 </div>
 

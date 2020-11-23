@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
@@ -15,12 +16,18 @@ public class DeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Long id = Long.parseLong(request.getParameter("id"));
-        userService.deleteUser(id);
-        response.sendRedirect("/delete");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("delete.jsp").forward(request, response);
+        try {
+            response.setContentType("text/html");
+            Long id = Long.parseLong(request.getParameter("id"));
+            userService.deleteUser(id);
+            response.sendRedirect("/list");
+
+        } catch (Exception e){
+            System.out.println("An attempt to access a link /delete without arguments");
+            response.sendRedirect("/list");
+        }
     }
 }

@@ -9,28 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet("/add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/edit")
+public class EditServlet extends HttpServlet {
     UserService userService = UserService.getInstance();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
 
+        Long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
 
-        userService.addUser(new User(name, email, password));
+        userService.editUser(new User(id, name, email, password));
         response.sendRedirect("/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.getRequestDispatcher("add.jsp").forward(request, response);
-        }
-        catch (Exception e) {
-            System.out.println("Exception from AddServlet/doGet()");
+            PrintWriter writer = response.getWriter();
+            response.setContentType("text/html");
+            Long id = Long.parseLong(request.getParameter("id"));
+            writer.println(id);
+            request.getRequestDispatcher("edit.jsp").forward(request, response);
+
+        } catch (Exception e){
+            System.out.println("An attempt to access a link /edit without arguments");
             response.sendRedirect("/list");
         }
     }
