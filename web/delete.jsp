@@ -20,28 +20,16 @@
         </div>
 
         <form method="post">
-
-            <label>Id:
-                <input type="text" required name="id"><br />
-            </label>
-
-            <button type="submit">Delete user</button>
+            <tr>
+                <td>ID: </td>
+                <td>${user.id}
+                    <form:hidden path="id"/>
+                </td>
+            </tr>
         </form>
 
-        <%
-            if (request.getAttribute("name") != null) {
-                out.println("<p>User '" + request.getAttribute("name") + "' deleted!</p>");
-            }
-
-            //TODO
-            // Сделать проверку на существующего пользователя, если такого нет, то вывести сообщение
-        %>
 
     </div>
-</div>
-
-<div>
-    <button onclick="location.href='/'">Return to main</button>
 </div>
 </body>
 </html>

@@ -13,21 +13,16 @@ public class User {
 
     public User(){}
 
-    public User(Long id, String name, String password, String email) { //mainConstructor
+    public User(Long id, String name, String email, String password) { //mainConstructor
         this.id = id;
         this.name = name;
-        this.password = password;
         this.email = email;
+        this.password = password;
     }
 
     public User(String name, String email, String password) { //addUser
         this.name = name;
         this.email = email;
-        this.password = password;
-    }
-
-    public User(String name, String password) { //deleteUser
-        this.name = name;
         this.password = password;
     }
 
