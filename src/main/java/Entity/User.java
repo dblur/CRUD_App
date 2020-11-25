@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "userinfo", schema = "public", catalog = "JavaWebApp")
-public class User {
+public class User { //TODO сделать роль админа для доступа к редактирвоанию данных
     private long id;
     private String name;
     private String email;
@@ -23,6 +23,11 @@ public class User {
     public User(String name, String email, String password) { //addUser
         this.name = name;
         this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String password) {
+        this.name = name;
         this.password = password;
     }
 
@@ -82,4 +87,16 @@ public class User {
     public int hashCode() {
         return Objects.hash(id, name, email, password);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+
+

@@ -13,10 +13,10 @@
 </head>
 
 <body>
-<div>
+<div align="center">
     <div>
         <div>
-            <h2>Users:</h2>
+            <h2>A list of users:</h2>
         </div>
         <h3>
             <div>
