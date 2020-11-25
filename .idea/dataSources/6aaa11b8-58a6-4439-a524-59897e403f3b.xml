@@ -793,7 +793,7 @@ false Zulu
     <database id="3" parent="1" name="JavaWebApp">
       <ObjectId>24577</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>586</IntrospectionStateNumber>
+      <IntrospectionStateNumber>766</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|24582|24584|1
 </Relations>
@@ -856,7 +856,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>587</IntrospectionStateNumber>
+      <IntrospectionStateNumber>767</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="3" name="heap">
@@ -947,20 +947,20 @@ false Zulu
     </column>
     <column id="33" parent="31" name="name">
       <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <StateNumber>522</StateNumber>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>763</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="34" parent="31" name="email">
       <Position>3</Position>
-      <DataType>varchar(30)|0s</DataType>
-      <StateNumber>523</StateNumber>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>764</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="35" parent="31" name="password">
       <Position>4</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <StateNumber>524</StateNumber>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>765</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="36" parent="31" name="userinfo_pk">

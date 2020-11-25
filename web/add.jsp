@@ -13,35 +13,47 @@
 
 <body>
 
-<div>
-    <div>
-        <div>
-            <h2>Add new user:</h2>
-        </div>
+<div align="center">
+    <h2>Add new user:</h2>
+    <form method="post">
+        <table border="0" cellpadding="3">
+            <tr>
+                <td>Name: </td>
+                <td>
+                    <label>
+                        <input type="text" required name="name"><br />
+                    </label>
+                </td>
+            </tr>
 
-        <form method="post">
+            <tr>
+                <td>Email: </td>
+                <td>
+                    <label>
+                        <input type="email" required name="email"><br/>
+                    </label>
+                </td>
+            </tr>
 
-            <label>Name:
-                <input type="text" required name="name"><br />
-            </label>
+            <tr>
+                <td>Password: </td>
+                <td>
+                    <label>
+                        <input type="password" required name="password"><br />
+                    </label>
+                </td>
+            </tr>
 
-            <label>Email:
-                <input type="email" required name="email"><br/>
-            </label>
+            <tr align="center">
+                <td colspan="2"> <button type="submit">Add new user</button>
+                     <button onclick="location.href='/list'">Userlist</button> </td>
+            </tr>
 
-            <label>Password:
-                <input type="password" required name="pass"><br />
-            </label>
-
-            <button type="submit">Add new user</button>
-            <button onclick="location.href='/list'">Userlist</button>
-        </form>
-    </div>
+            <tr align="center">
+                <td colspan="2"> <button onclick="location.href='/'">Return to main</button> </td>
+            </tr>
+        </table>
+    </form>
 </div>
-
-<div>
-    <button onclick="location.href='/'">Return to main</button>
-</div>
-
 </body>
 </html>

@@ -19,7 +19,7 @@ public class AddServlet extends HttpServlet {
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String password = request.getParameter("pass");
+        String password = request.getParameter("password");
 
         userService.addUser(new User(name, email, password));
         response.sendRedirect("/list");
