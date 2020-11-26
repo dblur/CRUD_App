@@ -48,12 +48,11 @@ public class UserHibernateDAO implements UserDAO {
     }
 
     public void addUser(User user) {
-        try (Session session = sessionFactory.openSession()) {
+            Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
             session.save(user);
             transaction.commit();
             session.close();
-        }
     }
 
     public void deleteUser(Long id) {
@@ -68,12 +67,20 @@ public class UserHibernateDAO implements UserDAO {
         }
     }
 
-    public void  editUser(User user) {
+    public void editUser(User user) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
             session.update(user);
             transaction.commit();
             session.close();
+        }
+    }
+
+    public boolean checkUser(String name, String password) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("FROM User WHERE role=:nameParam AND password=:passwordParam")
+                    .setParameter("nameParam", name)
+                    .setParameter("passwordParam", password) != null;
         }
     }
 }

@@ -784,7 +784,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1605709030</StartupTime>
+      <StartupTime>1606393967</StartupTime>
     </root>
     <database id="2" parent="1" name="FilmStoreDB">
       <ObjectId>24612</ObjectId>
@@ -793,7 +793,7 @@ false Zulu
     <database id="3" parent="1" name="JavaWebApp">
       <ObjectId>24577</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>766</IntrospectionStateNumber>
+      <IntrospectionStateNumber>851</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|24582|24584|1
 </Relations>
@@ -856,7 +856,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>767</IntrospectionStateNumber>
+      <IntrospectionStateNumber>852</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="3" name="heap">
@@ -935,7 +935,7 @@ false Zulu
     <table id="31" parent="17" name="userinfo">
       <ObjectId>24584</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>524</StateNumber>
+      <StateNumber>792</StateNumber>
     </table>
     <column id="32" parent="31" name="id">
       <Position>1</Position>
@@ -963,14 +963,21 @@ false Zulu
       <StateNumber>765</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="36" parent="31" name="userinfo_pk">
+    <column id="36" parent="31" name="role">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>850</StateNumber>
+      <DefaultExpression>&apos;USER&apos;::character varying</DefaultExpression>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="37" parent="31" name="userinfo_pk">
       <ObjectId>24591</ObjectId>
       <StateNumber>524</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="37" parent="31" name="userinfo_pk">
+    <key id="38" parent="31" name="userinfo_pk">
       <ObjectId>24592</ObjectId>
       <StateNumber>512</StateNumber>
       <ColNames>id</ColNames>
