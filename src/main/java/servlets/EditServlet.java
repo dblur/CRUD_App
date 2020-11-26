@@ -20,8 +20,9 @@ public class EditServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String role = request.getParameter("role");
 
-        userService.editUser(new User(id, name, email, password));
+        userService.editUser(new User(id, name, email, password, role));
         response.sendRedirect("/list");
     }
 
@@ -36,6 +37,7 @@ public class EditServlet extends HttpServlet {
         request.setAttribute("name", user.getName());
         request.setAttribute("password", user.getPassword());
         request.setAttribute("email", user.getEmail());
+        request.setAttribute("role", user.getRole());
 
         request.getRequestDispatcher("edit.jsp").forward(request, response);
 

@@ -51,4 +51,8 @@ public class UserService {
     public void editUser(User user) {
         userDAO.editUser(user);
     }
+
+    public boolean checkUser(String name, String password) {
+        return userDAO.checkUser(name, password);
+    }
 }

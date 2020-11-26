@@ -5,25 +5,28 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "userinfo", schema = "public", catalog = "JavaWebApp")
-public class User { //TODO сделать роль админа для доступа к редактирвоанию данных
+public class User {
     private long id;
     private String name;
     private String email;
     private String password;
+    private String role;
 
     public User(){}
 
-    public User(Long id, String name, String email, String password) { //mainConstructor
+    public User(Long id, String name, String email, String password, String role) { //mainConstructor
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
-    public User(String name, String email, String password) { //addUser
+    public User(String name, String email, String password, String role) { //addUser
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public User(String name, String password) {
@@ -72,20 +75,29 @@ public class User { //TODO сделать роль админа для дост�
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User that = (User) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(password, that.password);
+        User user = (User) o;
+        return id == user.id &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(role, user.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password);
+        return Objects.hash(id, name, email, password, role);
     }
 
     @Override
@@ -95,6 +107,7 @@ public class User { //TODO сделать роль админа для дост�
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

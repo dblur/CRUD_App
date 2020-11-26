@@ -43,6 +43,15 @@
                 </td>
             </tr>
 
+            <tr>
+                <td>Admin:</td>
+                <td>
+                    <label>
+                        <input type="checkbox" name="role" value="admin"> <br/>
+                    </label>
+                </td>
+            </tr>
+
             <tr align="center">
                 <td colspan="2"> <button type="submit">Save edited user</button>
                     <button onclick="location.href='/list'">Cancel</button> </td>
