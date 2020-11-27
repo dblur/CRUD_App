@@ -31,6 +31,7 @@
             <th> Password: </th>
             <th> Email: </th>
             <th> Action: </th>
+            <th> Admin: </th>
             </thead>
             <tbody>
             <c:forEach var="user" items="${requestScope.userNames}">
@@ -39,6 +40,7 @@
                     <td>${user.name}</td>
                     <td>${user.password}</td>
                     <td>${user.email}</td>
+                    <td>${user.role}</td>
                     <td>
                         <button onclick="location.href='/edit?id=${user.id}'">Edit</button>
                          <button onclick="location.href='/delete?id=${user.id}'">Delete</button>

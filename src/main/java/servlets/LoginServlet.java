@@ -1,5 +1,6 @@
 package servlets;
 
+import DAO.UserHibernateDAO;
 import Entity.User;
 import service.UserService;
 
@@ -26,13 +27,16 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             if ((user = userService.getUserByName(name)) != null) {
                 session.setAttribute("role", user.getRole());
-                if (session.getAttribute("role").equals("admin")) {
+                session.setAttribute("password", password);
+                if (session.getAttribute("role").equals("admin") && session.getAttribute("password").equals(user.getPassword())) {
                     response.sendRedirect("/list");
-                } else {
+                } else if (session.getAttribute("password").equals(user.getPassword())){
                     response.sendRedirect("/user");
+                } else {
+                    response.sendRedirect("/login");        // if the password is incorrect
                 }
             } else {
-                response.sendRedirect("/");
+                response.sendRedirect("/");     // if user doesn't exist
             }
         }
     }
