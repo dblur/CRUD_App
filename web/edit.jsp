@@ -20,7 +20,7 @@
                 <td>New name: </td>
                 <td>
                     <label>
-                        <input type="text" name="name" placeholder="Type new name" required value=${name}> <br/>
+                        <input type="text" name="name" placeholder="Type new name" required value=${name}>
                     </label>
                 </td>
             </tr>
@@ -29,7 +29,7 @@
                 <td>Email: </td>
                 <td>
                     <label>
-                        <input type="text" name="email" placeholder="Type new email" required value=${email}> <br/>
+                        <input type="text" name="email" placeholder="Type new email" required value=${email}>
                     </label>
                 </td>
             </tr>
@@ -38,16 +38,30 @@
                 <td>Password: </td>
                 <td>
                     <label>
-                        <input type="text" name="password" placeholder="Type new password" required value=${password}> <br/>
+                        <input type="text" name="password" placeholder="Type new password" required value=${password}>
                     </label>
                 </td>
+            </tr>
+
+            <tr>
+                <td>Current permissions:</td>
+                <td>${role}</td>
             </tr>
 
             <tr>
                 <td>Admin:</td>
                 <td>
                     <label>
-                        <input type="checkbox" name="role" value="admin"> <br/>
+                        <input type="radio" name="role" value="admin">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+
+                <td>User:</td>
+                <td>
+                    <label>
+                        <input type="radio" name="role" value="user">
                     </label>
                 </td>
             </tr>

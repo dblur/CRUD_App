@@ -10,7 +10,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role;
+    private String role = "user";
 
     public User(){}
 
@@ -22,11 +22,10 @@ public class User {
         this.role = role;
     }
 
-    public User(String name, String email, String password, String role) { //addUser
+    public User(String name, String email, String password) { //addUser
         this.name = name;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
     public User(String name, String password) {
@@ -46,7 +45,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, length = 30)
+    @Column(name = "name", length = 30)
     public String getName() {
         return name;
     }
@@ -56,7 +55,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "email", nullable = true, length = 30)
+    @Column(name = "email", length = 30)
     public String getEmail() {
         return email;
     }
@@ -66,7 +65,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "password", nullable = true, length = 50)
+    @Column(name = "password", length = 50)
     public String getPassword() {
         return password;
     }
@@ -75,6 +74,8 @@ public class User {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "role", length = 50)
     public String getRole() {
         return role;
     }

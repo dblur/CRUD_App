@@ -30,11 +30,12 @@ public class UserHibernateDAO implements UserDAO {
         User user;
         try (Session session = sessionFactory.openSession()) {
             user = session.createQuery("FROM User WHERE name=:name", User.class)
-            .setParameter("name", name).uniqueResult();
+                    .setParameter("name", name).uniqueResult();
             session.close();
         }
         return user;
     }
+
 
     @Override
     public User getUserById(Long id) {
@@ -48,11 +49,11 @@ public class UserHibernateDAO implements UserDAO {
     }
 
     public void addUser(User user) {
-            Session session = sessionFactory.openSession();
-            Transaction transaction = session.beginTransaction();
-            session.save(user);
-            transaction.commit();
-            session.close();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(user);
+        transaction.commit();
+        session.close();
     }
 
     public void deleteUser(Long id) {
@@ -61,8 +62,7 @@ public class UserHibernateDAO implements UserDAO {
             session.delete(getUserById(id));
             transaction.commit();
             session.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("An attempt to delete a non-existent user");
         }
     }
@@ -78,7 +78,7 @@ public class UserHibernateDAO implements UserDAO {
 
     public boolean checkUser(String name, String password) {
         try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("FROM User WHERE role=:nameParam AND password=:passwordParam")
+            return session.createQuery("FROM User WHERE name=:nameParam AND password=:passwordParam")
                     .setParameter("nameParam", name)
                     .setParameter("passwordParam", password) != null;
         }
