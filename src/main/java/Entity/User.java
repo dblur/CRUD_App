@@ -10,7 +10,11 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role = "user";
+    private String role;
+
+    public boolean isAdmin(String role){
+        return role.equals("admin");
+    }
 
     public User(){}
 
