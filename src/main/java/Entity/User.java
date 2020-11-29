@@ -12,10 +12,6 @@ public class User {
     private String password;
     private String role;
 
-    public boolean isAdmin(String role){
-        return role.equals("admin");
-    }
-
     public User(){}
 
     public User(Long id, String name, String email, String password, String role) { //mainConstructor
