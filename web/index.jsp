@@ -23,6 +23,7 @@
     <div>
         <h2>Go to the login page to start using the application</h2>
         <button onclick="location.href='/login'">Login page</button>
+        <button onclick="location.href='/list'">User list</button>
     </div>
 </div>
 </body>
