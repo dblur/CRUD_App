@@ -1,21 +1,25 @@
 package userEditor.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import userEditor.Service.UserService;
-import userEditor.Service.UserServiceImpl;
+import userEditor.service.UserService;
 import userEditor.model.User;
 
 import java.util.List;
 
 @Controller
 public class UserController {
-    private static User user;
-    private UserService userService = new UserServiceImpl();
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/")
     public ModelAndView mainPage() {
@@ -39,10 +43,12 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/delete")
-    public ModelAndView deletePage() {
+    @GetMapping(value = "/delete/{id}")
+    public ModelAndView deleteUser(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("delete");
+        modelAndView.setViewName("redirect:/list");
+        User user = userService.getById(id);
+        userService.delete(user);
         return modelAndView;
     }
 
@@ -52,14 +58,13 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("edit");
         modelAndView.addObject("user", user);
-        modelAndView.addObject("user", userService.getById(id));
         return modelAndView;
     }
 
     @PostMapping(value = "/edit")
     public ModelAndView editUser(@ModelAttribute("user") User user) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/edit");
+        modelAndView.setViewName("redirect:/list");
         userService.edit(user);
         return modelAndView;
     }
@@ -79,7 +84,6 @@ public class UserController {
         modelAndView.setViewName("user");
         return modelAndView;
     }
-
 }
 
 

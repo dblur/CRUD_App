@@ -47,25 +47,25 @@
 
             <tr>
                 <td>Current permissions:</td>
-<%--                <td>${role}</td>--%>
+                <td>${user.role}</td>
             </tr>
 
-<%--            <tr>--%>
-<%--                <td>Admin:</td>--%>
-<%--                <td>--%>
-<%--                    <label>--%>
-<%--                        <input type="radio" name="role" value="admin">--%>
-<%--                    </label>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>User:</td>--%>
-<%--                <td>--%>
-<%--                    <label>--%>
-<%--                        <input type="radio" name="role" value="user">--%>
-<%--                    </label>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
+            <tr>
+                <td>Admin:</td>
+                <td>
+                    <label>
+                        <input type="radio" name="role" value="admin">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>User:</td>
+                <td>
+                    <label>
+                        <input type="radio" name="role" value="user">
+                    </label>
+                </td>
+            </tr>
 
             <tr align="center">
                 <td colspan="2"> <button type="submit">Save edited user</button>

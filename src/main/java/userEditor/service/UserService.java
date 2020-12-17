@@ -1,4 +1,4 @@
-package userEditor.Service;
+package userEditor.service;
 
 import userEditor.model.User;
 

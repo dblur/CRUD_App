@@ -30,8 +30,8 @@
             <th> Username: </th>
             <th> Password: </th>
             <th> Email: </th>
+            <th> Role: </th>
             <th> Action: </th>
-            <th> Admin: </th>
             </thead>
             <tbody>
             <c:forEach var="user" items="${userList}">
@@ -40,6 +40,7 @@
                     <td>${user.name}</td>
                     <td>${user.password}</td>
                     <td>${user.email}</td>
+                    <td>${user.role}</td>
                     <td>
                         <button onclick="location.href='/edit/${user.id}'">Edit</button>
                         <button onclick="location.href='/delete/${user.id}'">Delete</button>
