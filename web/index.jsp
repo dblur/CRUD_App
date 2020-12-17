@@ -17,7 +17,7 @@
         <h1>CRUD app by dblur</h1>
         <p>Сreated the ability to login users, add/remove/edit existing users</p>
         <h2>Users with admin rights can manage the list of existing users</h2>
-        <p>* As yet unrealized opportunity. I will add in the near future</p>
+        <p>Worked add, delete, update, list functional. Also working login for user and usability admin's Filter</p>
     </div>
 
     <div>
