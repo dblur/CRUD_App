@@ -2,10 +2,7 @@ package userEditor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import userEditor.service.UserService;
 import userEditor.model.User;
@@ -36,9 +33,13 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-        public ModelAndView addUser(@ModelAttribute("user") User user) {
+        public ModelAndView addUser(@RequestParam String name,
+                                    @RequestParam String email,
+                                    @RequestParam String password) {
         ModelAndView modelAndView = new ModelAndView();
+        User user;
         modelAndView.setViewName("redirect:/list");
+        user = new User(name, email, password);
         userService.add(user);
         return modelAndView;
     }
@@ -47,8 +48,7 @@ public class UserController {
     public ModelAndView deleteUser(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/list");
-        User user = userService.getById(id);
-        userService.delete(user);
+        userService.delete(id);
         return modelAndView;
     }
 
@@ -62,8 +62,12 @@ public class UserController {
     }
 
     @PostMapping(value = "/edit")
-    public ModelAndView editUser(@ModelAttribute("user") User user) {
+    public ModelAndView editUser(@RequestParam String name,
+                                 @RequestParam String email,
+                                 @RequestParam String password) {
+        User user;
         ModelAndView modelAndView = new ModelAndView();
+        user = new User(name, email, password);
         modelAndView.setViewName("redirect:/list");
         userService.edit(user);
         return modelAndView;

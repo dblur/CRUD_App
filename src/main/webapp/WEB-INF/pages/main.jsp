@@ -16,8 +16,8 @@
     <div>
         <h1>CRUD app by dblur</h1>
         <p>Сreated the ability to login users, add/remove/edit existing users</p>
-        <h2>Users with admin rights can manage the list of existing users</h2>
-        <p>* As yet unrealized opportunity. I will add in the near future</p>
+        <h2><span style="color: lawngreen; "> Now with Spring Framework </span></h2>
+        <p></p>
     </div>
 
     <div>

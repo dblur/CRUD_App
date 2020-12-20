@@ -1,17 +1,16 @@
 package userEditor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import userEditor.DAO.UserDAO;
-import userEditor.DAO.UserDAOImpl;
 import userEditor.model.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Service("UserService")
+@Service
 public class UserServiceImpl implements UserService {
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserDAO userDAO;
 
     @Autowired
     public void setUserDAO (UserDAO userDAO) {
@@ -19,7 +18,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public List<User> allUsers() {
         return userDAO.allUsers();
     }
@@ -32,8 +30,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void delete(User user) {
-        userDAO.delete(user);
+    public void delete(int id) {
+        userDAO.delete(id);
     }
 
     @Override
@@ -43,7 +41,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public User getById(int id) {
         return userDAO.getById(id);
     }

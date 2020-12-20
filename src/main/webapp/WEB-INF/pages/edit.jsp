@@ -1,4 +1,4 @@
-<%--
+<%@ page import="userEditor.model.User" %><%--
   Created by IntelliJ IDEA.
   User: hom888
   Date: 12.12.2020
@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Edit page</title>
@@ -17,6 +18,7 @@
 <div align="center">
     <h2>Edit user:</h2>
     <form action="${var}" method="post">
+        <input type="hidden" name="id" value=${user.id}>
         <table border="0" cellpadding="3">
             <tr>
                 <td>New name: </td>
