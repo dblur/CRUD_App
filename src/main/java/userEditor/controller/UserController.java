@@ -62,12 +62,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/edit")
-    public ModelAndView editUser(@RequestParam String name,
-                                 @RequestParam String email,
-                                 @RequestParam String password) {
-        User user;
+    public ModelAndView editUser(@ModelAttribute("user") User user) {
         ModelAndView modelAndView = new ModelAndView();
-        user = new User(name, email, password);
         modelAndView.setViewName("redirect:/list");
         userService.edit(user);
         return modelAndView;
