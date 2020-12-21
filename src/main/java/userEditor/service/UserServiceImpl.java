@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void add(User user) {
+        user.setRole("user");
         userDAO.add(user);
     }
 

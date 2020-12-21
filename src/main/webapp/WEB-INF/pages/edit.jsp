@@ -70,8 +70,9 @@
             </tr>
 
             <tr align="center">
-                <td colspan="2"> <button type="submit">Save edited user</button>
-                    <button onclick="location.href='/list'">Cancel</button> </td>
+                <td colspan="2">
+                    <button type="submit">Save edited user</button>
+                    <button type="reset" onclick="location.href='/list'">Cancel</button> </td>
             </tr>
         </table>
     </form>
