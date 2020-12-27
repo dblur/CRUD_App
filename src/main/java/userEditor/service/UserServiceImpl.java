@@ -1,6 +1,8 @@
 package userEditor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import userEditor.DAO.UserDAO;
@@ -25,7 +27,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void add(User user) {
-        user.setRole("user");
         userDAO.add(user);
     }
 
@@ -44,5 +45,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getById(int id) {
         return userDAO.getById(id);
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return userDAO.getByEmail(email);
+    }
+
+    @Override
+    public User getByName(String name) {
+        return userDAO.getByName(name);
+    }
+
+    @Override
+    public boolean checkUser(String name, String password) {
+        return userDAO.checkUser(name, password);
     }
 }

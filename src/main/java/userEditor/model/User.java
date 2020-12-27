@@ -1,12 +1,16 @@
 package userEditor.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
-@Table(name = "userinfo")
+@Table(name = "userinfo", schema = "test1")
 
-public class User {
+public class User implements UserDetails {
 
     @Id
     @Column(name = "id")
@@ -16,19 +20,19 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role")
-    private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> role;
 
     public User() {
     }
 
-    public User(int id, String name, String email, String password, String role) {
+    public User(int id, String name, String email, String password, Set<Role> role) { // main constructor
         this.id = id;
         this.name = name;
         this.email = email;
@@ -36,78 +40,92 @@ public class User {
         this.role = role;
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password) { //
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public User(String name, String email, String password, String role) {
+    public User(String name, String email, String password, Set<Role> role) { //
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User(String name, String password) { // login constructor
+        this.name = name;
+        this.password = password;
     }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
 
-
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
-
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return role;
+    }
+
+    @Override
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String getUsername() {
+        return name;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-
-    public String getRole() {
+    public Set<Role> getRole() {
         return role;
     }
-    public void setRole(String role) {
+
+    public void setRole(Set<Role> role) {
         this.role = role;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, email, password, role);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
     }
 }

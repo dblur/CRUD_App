@@ -12,6 +12,10 @@ public interface UserDAO {
     void delete(int id);
     void edit(User user);
 
+    boolean checkUser(String name, String password);
+
     User getById(int id);
+    User getByEmail(String email);
+    User getByName(String name);
 
 }

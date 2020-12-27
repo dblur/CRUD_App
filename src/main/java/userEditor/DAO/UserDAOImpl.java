@@ -1,6 +1,5 @@
 package userEditor.DAO;
 
-import org.hibernate.annotations.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import userEditor.model.User;
@@ -43,5 +42,20 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User getById(int id) {
         return entityManager.find(User.class, id);
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return entityManager.find(User.class, email);
+    }
+
+    @Override
+    public User getByName(String name) {
+        return entityManager.find(User.class, name);
+    }
+
+    @Override
+    public boolean checkUser(String name, String password) {
+        return true;
     }
 }
